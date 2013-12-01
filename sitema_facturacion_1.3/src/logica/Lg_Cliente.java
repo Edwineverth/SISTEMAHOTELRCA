@@ -7,6 +7,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  * The Class Lg_Cliente.
+ * kmjinhubygvtfrdcs 
  */
 public class Lg_Cliente {
 
