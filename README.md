@@ -1,7 +1,11 @@
 SISTEMAHOTELRCA
 ===============
+SEG RCA
+Sistema Informatico de Administracion y Gestion de Hotel 
+-Gestion Usuarios
+-Gestion Cliente
+-Gestion Revercacions
+-Gestion Pagos
+-Gestion Report 
 
-proyecto hotel RCA
-
-Este proyecto esta en la nuve en la pagina de GITHUB .. 
-Aqui mostrara todo lo referenete a l sistema de gestion y administracion 
+Sistema echo a base del lenguade de programacion de Java y con una base de datos realizada en Postgre  a mas de tener licenciamiento GPL.
