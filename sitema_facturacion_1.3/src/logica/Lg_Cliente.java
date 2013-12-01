@@ -9,6 +9,7 @@ import javax.swing.table.DefaultTableModel;
  * The Class Lg_Cliente.
  * kmjinhubygvtfrdcs 
  * Miguel feo
+ * Edwin el chever
  */
 public class Lg_Cliente {
 
