@@ -1,0 +1,3 @@
+server= localhost:5432/RCA
+user= postgres
+password= root
