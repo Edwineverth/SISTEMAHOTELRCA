@@ -8,6 +8,7 @@ import javax.swing.table.DefaultTableModel;
 /**
  * The Class Lg_Cliente.
  * kmjinhubygvtfrdcs 
+ * Miguel feo
  */
 public class Lg_Cliente {
 
