@@ -15,7 +15,7 @@ public class Lg_Usuario {
 	public Conexion c = Conexion.getConn();
 
 	/** The m. */
-	Metodos m = new Metodos();
+	Lg_Validaciones m = new Lg_Validaciones();
 
 	/** The usu_cedula. */
 	String usu_cedula;

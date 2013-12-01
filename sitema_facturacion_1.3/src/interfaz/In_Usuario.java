@@ -19,7 +19,7 @@ import javax.swing.JTextField;
 import javax.swing.event.CaretEvent;
 import javax.swing.table.DefaultTableModel;
 import logica.Lg_Usuario;
-import logica.Metodos;
+import logica.Lg_Validaciones;
 
 /**
  * The Class In_Usuario.
@@ -61,7 +61,7 @@ public class In_Usuario {
 	JRadioButton usu_Desactivado = new JRadioButton("Inactivo");
 
 	/** The Comprobacion. */
-	public Metodos Comprobacion = new Metodos();
+	public Lg_Validaciones Comprobacion = new Lg_Validaciones();
 
 	/** The usu_buscar. */
 	JTextField usu_buscar;

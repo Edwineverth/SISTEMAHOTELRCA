@@ -17,7 +17,7 @@ public class Lg_Cliente {
 	public Conexion c = Conexion.getConn();
 
 	/** The m. */
-	Metodos m = new Metodos();
+	Lg_Validaciones m = new Lg_Validaciones();
 
 	/** The cli_codigo. */
 	int cli_codigo;

@@ -17,7 +17,7 @@ import javax.swing.JTextField;
 import javax.swing.event.CaretEvent;
 import javax.swing.table.DefaultTableModel;
 import logica.Lg_Cliente;
-import logica.Metodos;
+import logica.Lg_Validaciones;
 
 /**
  * The Class In_Cliente.Un cambio 
@@ -36,7 +36,7 @@ public class In_Cliente {
 	Lg_Cliente cliente = new Lg_Cliente();
 
 	/** The comprobacion. */
-	public Metodos comprobacion = new Metodos();
+	public Lg_Validaciones comprobacion = new Lg_Validaciones();
 
 	/** The cli_codigo. */
 	JTextField cli_codigo = new JTextField();
