@@ -1,9 +1,9 @@
 
 package interfaz;
 
-import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
-import java.awt.Toolkit;
+
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -11,7 +11,6 @@ import javax.swing.JRootPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JProgressBar;
 
-import org.jvnet.substance.SubstanceLookAndFeel;
 
 /**
  * The Class Main.
