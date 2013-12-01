@@ -20,7 +20,8 @@ import logica.Lg_Cliente;
 import logica.Metodos;
 
 /**
- * The Class In_Cliente.
+ * The Class In_Cliente.Un cambio
+ * 
  */
 public class In_Cliente {
 
