@@ -10,6 +10,7 @@ import javax.swing.table.DefaultTableModel;
  * kmjinhubygvtfrdcs 
  * Miguel feo
  * Edwin el chever
+ * x Aki paso shooo!
  */
 public class Lg_Cliente {
 
