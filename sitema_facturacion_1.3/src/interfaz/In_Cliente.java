@@ -22,6 +22,11 @@ import logica.Metodos;
 /**
  * The Class In_Cliente.Un cambio 
  * de ahora sasfasdasd
+ * holasdasdsa
+ * dasd
+ * asdas
+ * dasdasdas
+ * asdasdas
  * 
  */
 public class In_Cliente {
