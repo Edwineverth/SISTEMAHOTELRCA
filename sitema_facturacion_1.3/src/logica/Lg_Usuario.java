@@ -8,6 +8,7 @@ import conexion.Conexion;
 
 /**
  * The Class Lg_Usuario.
+ * olaaaa
  */
 public class Lg_Usuario {
 
