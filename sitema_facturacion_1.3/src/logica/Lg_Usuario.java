@@ -9,6 +9,7 @@ import conexion.Conexion;
 /**
  * The Class Lg_Usuario.
  * olaaaa
+ * Edwin Cambio 32334234
  */
 public class Lg_Usuario {
 
