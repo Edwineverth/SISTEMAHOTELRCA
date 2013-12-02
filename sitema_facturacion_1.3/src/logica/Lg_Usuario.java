@@ -175,7 +175,7 @@ public class Lg_Usuario {
 		String pas1 = "";
 		try {
 			ResultSet r = c
-					.consulta("SELECT clave  FROM usuario WHERE cedula = '"
+					.consulta("SELECT usu_clave  FROM usuario WHERE usu_cedula = '"
 							+ ced + "';");
 
 			while (r.next()) {
@@ -214,7 +214,7 @@ public class Lg_Usuario {
 		int persmiso = 0;
 		try {
 			ResultSet r = c
-					.consulta("SELECT  permisos.permiso FROM  usuario, \"tipoUsuario\",permisos WHERE  usuario.tus_codigo = \"tipoUsuario\".tus_codigo AND permisos.tus_codigo = \"tipoUsuario\".tus_codigo AND usuario.cedula = '"
+					.consulta("SELECT  permisos.per_permiso FROM  usuario, \"tus_Usuario\",permisos WHERE  usuario.tus_codigos = \"tus_Usuario\".tus_codigos AND permisos.tus_codigos = \"tus_Usuario\".tus_codigos AND usuario.usu_cedula = '"
 							+ ced + "' ;");
 			while (r.next()) {
 				persmiso = Integer.parseInt(r.getString(1));
