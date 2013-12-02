@@ -22,12 +22,7 @@ import logica.Lg_Validaciones;
 /**
  * The Class In_Cliente.Un cambio 
  * de ahora sasfasdasd
- * holasdasdsa
- * dasd
- * asdas
- * dasdasdas
- * asdasdas
- * sdfsdfsdf
+ * 
  * 
  */
 public class In_Cliente {
