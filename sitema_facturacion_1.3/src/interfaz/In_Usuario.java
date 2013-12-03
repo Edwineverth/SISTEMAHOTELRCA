@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -18,6 +19,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.event.CaretEvent;
 import javax.swing.table.DefaultTableModel;
+
 import logica.Lg_Usuario;
 import logica.Lg_Validaciones;
 
@@ -120,14 +122,26 @@ public class In_Usuario {
 	/** The estado. */
 	boolean estado = true;
 
+	
+	public void runr() {
+		In_Principal principal =new In_Principal();
+		//principal.contenedor.addTab("USUARIO", null, usuario(), null);
+		//principal.panel.add(principal.contenedor);
+		System.out.println("yaaaaa");
+	}
+	
+	
 	/**
 	 * Usuario. Levanta todos los componentes en la interfaz y llama a los otros
 	 * metodos.
 	 * 
 	 * @return the j layered pane
 	 */
+	
+	
+	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public JLayeredPane usuario() {
+	public JLayeredPane run() {
 		Panel_Usuario.setLayout(null);
 
 		JLabel Usu_Codigo = new JLabel("Código");

@@ -1,5 +1,7 @@
 package logica;
 
+import interfaz.In_Cliente;
+
 import java.sql.ResultSet;
 
 import javax.swing.table.DefaultTableModel;
@@ -216,7 +218,7 @@ public class Lg_Usuario {
 		int persmiso = 0;
 		try {
 			ResultSet r = c
-					.consulta("SELECT  permisos.per_permiso FROM  usuario, \"tus_Usuario\",permisos WHERE  usuario.tus_codigos = \"tus_Usuario\".tus_codigos AND permisos.tus_codigos = \"tus_Usuario\".tus_codigos AND usuario.usu_cedula = '"
+					.consulta("SELECT  permisos.per_permiso FROM  usuario, tus_usuario,permisos WHERE  usuario.tus_codigos = tus_usuario.tus_codigos AND permisos.tus_codigos = tus_usuario.tus_codigos AND usuario.usu_cedula = '"
 							+ ced + "' ;");
 			while (r.next()) {
 				persmiso = Integer.parseInt(r.getString(1));
@@ -227,4 +229,5 @@ public class Lg_Usuario {
 		}
 		return persmiso;
 	}
+	
 }

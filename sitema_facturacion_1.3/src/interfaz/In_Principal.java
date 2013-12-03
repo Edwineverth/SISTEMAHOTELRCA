@@ -1,6 +1,5 @@
 package interfaz;
 
-
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -12,10 +11,13 @@ import javax.swing.JTabbedPane;
 
 import conexion.Conexion;
 
+import java.awt.Component;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 import logica.*;
 
@@ -28,7 +30,7 @@ public class In_Principal {
 	JFrame ventana = new JFrame();
 
 	/** The panel. */
-	JPanel panel = new JPanel();
+	public JPanel panel = new JPanel();
 
 	/** The Compacto. */
 	JRadioButtonMenuItem Compacto = new JRadioButtonMenuItem("Compacto");
@@ -57,7 +59,6 @@ public class In_Principal {
 	 */
 	public void aparienciaVentana() {
 		JFrame.setDefaultLookAndFeelDecorated(true);
-		
 
 	}
 
@@ -99,36 +100,66 @@ public class In_Principal {
 	 * @throws IOException
 	 * @throws ClassNotFoundException
 	 */
-	public void contenedores() throws IOException, ClassNotFoundException {
-		contenedor.setBounds(15, 40, x - 40, y - 120);
+	public void contenedores() {
+		Class<?> clase;
+		Method metodo;
+		try {
+			contenedor.setBounds(15, 40, x - 40, y - 120);
+			switch (Lg_Usuario.tipousuario(In_Iniciar_Secion.ced)) {
 
-		
-		// Evalua una condicion por medio de un valor devuelto por un metodo por
-		// valor
-		switch (Lg_Usuario.tipousuario(In_Iniciar_Secion.ced)) {
-		case 1:
-			// Administrador
-			In_Cliente s = new In_Cliente();
-			In_Usuario u = new In_Usuario();
-			
-			contenedor.addTab("CLIENTE", null, s.cliente(), null);
-			contenedor.addTab("USUARIO", null, u.usuario(), null);
-			
-			break;
-		case 2:
-			// Recepcionista
-			In_Cliente s1 = new In_Cliente();
-			
-			contenedor.addTab("CLIENTE", null, s1.cliente(), null);
-			
+			case 1:
+				Lg_Recursos recursos = new Lg_Recursos();
+				for (int i = 0; i < recursos.asignacionRecursos(
+						In_Iniciar_Secion.ced).size(); i++) {
+					clase = Class.forName((String) recursos.asignacionRecursos(
+							In_Iniciar_Secion.ced).get(i));
+					System.out.println();
+					Object interfazcliente = clase.newInstance();
+					metodo = clase.getMethod("run");
+					// metodo.invoke(interfazcliente);
+					contenedor.addTab(
+							(String) recursos.asignacionRecursos(
+									In_Iniciar_Secion.ced).get(i), null,
+							(Component) metodo.invoke(interfazcliente), null);
+				}
+				break;
+			case 2:
+				Lg_Recursos recursoss = new Lg_Recursos();
+				for (int i = 0; i < recursoss.asignacionRecursos(
+						In_Iniciar_Secion.ced).size(); i++) {
+					clase = Class.forName((String) recursoss
+							.asignacionRecursos(In_Iniciar_Secion.ced).get(i));
+					System.out.println();
+					Object interfazcliente = clase.newInstance();
+					metodo = clase.getMethod("run");
+					// metodo.invoke(interfazcliente);
+					contenedor.addTab(
+							(String) recursoss.asignacionRecursos(
+									In_Iniciar_Secion.ced).get(i), null,
+							(Component) metodo.invoke(interfazcliente), null);
+				}
+				break;
 
-			break;
+			default:
 
-		default:
+				break;
+			}
+		} catch (ClassNotFoundException ex) {
+			System.out.println("La clase no pudo ser encontrada");
+		} catch (InstantiationException x) {
+			System.out
+					.println("No se pudo crear una instancia de la clase desconocida");
+		} catch (IllegalAccessException x) {
+			System.out
+					.println("No se puede tener acceso a la clase desconocida");
+		} catch (IllegalArgumentException x) {
+			System.out
+					.println("Los argumentos para invocar al metodo no son correctos");
+		} catch (InvocationTargetException x) {
+			System.out.println("El metodo invocado lanzo una excepcion");
+		} catch (NoSuchMethodException x) {
 
-			break;
 		}
-
 		panel.add(contenedor);
 	}
 
@@ -136,6 +167,7 @@ public class In_Principal {
 	 * Menu.
 	 */
 	public void menu() {
+
 		menuBar.setBounds(0, 0, x, 30);
 		panel.add(menuBar);
 

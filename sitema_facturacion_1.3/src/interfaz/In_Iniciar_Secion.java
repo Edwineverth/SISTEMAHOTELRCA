@@ -229,4 +229,13 @@ public class In_Iniciar_Secion {
 		}
 	}
 
+	public static String getCed() {
+		return ced;
+	}
+
+	public static void setCed(String ced) {
+		In_Iniciar_Secion.ced = ced;
+	}
+	
+
 }

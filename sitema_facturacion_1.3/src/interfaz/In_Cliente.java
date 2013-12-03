@@ -119,7 +119,13 @@ public class In_Cliente {
 	 * 
 	 * @return the j layered pane
 	 */
-	public JLayeredPane cliente() {
+	public void runr() {
+		In_Principal principal =new In_Principal();
+	//	principal.contenedor.addTab("CLIENTE", null, cliente(), null);
+	//	principal.panel.add(principal.contenedor);
+	}
+	public JLayeredPane run() {
+		System.out.println("holaaaa");
 		Panel_Cliente.setLayout(null);
 
 		JLabel Cli_codigo = new JLabel("Código");
