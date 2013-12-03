@@ -18,25 +18,28 @@ import conexion.Conexion;
 public class Lg_Recursos {
 	public static void main(String[] args) {
 		Lg_Recursos recursos = new Lg_Recursos();
-
-		for (int i = 0; i < recursos.asignacionRecursos("0705709806").size(); i++) {
-			System.out
-					.println(recursos.asignacionRecursos("0705709806").get(i));
-		}
+		
+			//recursos.asignacionRecursos(1);
+			System.out.println(recursos.asignacionRecursos(1).size());
+			for (int i = 0; i < recursos.asignacionRecursos(1).size(); i++) {
+				System.out.println(recursos.asignacionRecursos(1).get(i));
+			}
+			
 	}
 
-	public Vector asignacionRecursos(String cedula) {
-		Vector vector = new Vector<>();
+	public Vector asignacionRecursos(int permiso) {
+		Vector vector = new Vector();
 		Conexion c = Conexion.getConn();
 		String recursos = null;
 		try {
 			ResultSet r = c
-					.consulta("SELECT  recurso.rec_nombre FROM  usuario, tus_usuario,permisos,recurso WHERE  usuario.tus_codigos = tus_usuario.tus_codigos AND permisos.tus_codigos = tus_usuario.tus_codigos AND permisos.tus_codigos = permisos.rec_codigo AND usuario.usu_cedula ='"
-							+ cedula + "'  ;");
+					.consulta("SELECT  recurso.rec_nombre FROM  recurso WHERE "+permiso+" = recurso.tus_codigos;");
 			while (r.next()) {
 				recursos = r.getString(1);
 				// System.out.println(recursos);
+				// System.out.println("");
 				vector.add(recursos);
+				
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -45,5 +48,19 @@ public class Lg_Recursos {
 		return vector;
 
 	}
-	
+
+	public Vector asignacionModulos(String cedula) {
+		Vector vector = new Vector<>();
+		Conexion c = Conexion.getConn();
+		try {
+			ResultSet r = c
+					.consulta("SELECT  recurso.rec_nombre FROM  usuario, tus_usuario,permisos,recurso WHERE  usuario.tus_codigos = tus_usuario.tus_codigos AND permisos.tus_codigos = tus_usuario.tus_codigos AND permisos.tus_codigos = permisos.rec_codigo AND usuario.usu_cedula ='"
+							+ cedula + "'  ;");
+
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
+
+	}
 }

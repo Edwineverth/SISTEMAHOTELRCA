@@ -96,7 +96,7 @@ public class Main extends JFrame {
 				barra.setValue(i);
 				barra.repaint();
 				try {
-					Thread.sleep(40);
+					Thread.sleep(10);
 				} catch (Exception e) {
 
 				}

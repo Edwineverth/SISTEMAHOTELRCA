@@ -105,45 +105,22 @@ public class In_Principal {
 		Method metodo;
 		try {
 			contenedor.setBounds(15, 40, x - 40, y - 120);
-			switch (Lg_Usuario.tipousuario(In_Iniciar_Secion.ced)) {
 
-			case 1:
-				Lg_Recursos recursos = new Lg_Recursos();
-				for (int i = 0; i < recursos.asignacionRecursos(
-						In_Iniciar_Secion.ced).size(); i++) {
-					clase = Class.forName((String) recursos.asignacionRecursos(
-							In_Iniciar_Secion.ced).get(i));
-					System.out.println();
-					Object interfazcliente = clase.newInstance();
-					metodo = clase.getMethod("run");
-					// metodo.invoke(interfazcliente);
-					contenedor.addTab(
-							(String) recursos.asignacionRecursos(
-									In_Iniciar_Secion.ced).get(i), null,
-							(Component) metodo.invoke(interfazcliente), null);
-				}
-				break;
-			case 2:
-				Lg_Recursos recursoss = new Lg_Recursos();
-				for (int i = 0; i < recursoss.asignacionRecursos(
-						In_Iniciar_Secion.ced).size(); i++) {
-					clase = Class.forName((String) recursoss
-							.asignacionRecursos(In_Iniciar_Secion.ced).get(i));
-					System.out.println();
-					Object interfazcliente = clase.newInstance();
-					metodo = clase.getMethod("run");
-					// metodo.invoke(interfazcliente);
-					contenedor.addTab(
-							(String) recursoss.asignacionRecursos(
-									In_Iniciar_Secion.ced).get(i), null,
-							(Component) metodo.invoke(interfazcliente), null);
-				}
-				break;
-
-			default:
-
-				break;
+			Lg_Recursos recursos = new Lg_Recursos();
+			for (int i = 0; i < recursos.asignacionRecursos(
+					Lg_Usuario.tipousuario(In_Iniciar_Secion.ced)).size(); i++) {
+				System.out.println(recursos.asignacionRecursos(
+						Lg_Usuario.tipousuario(In_Iniciar_Secion.ced)).get(i));
+				clase = Class.forName((String) recursos.asignacionRecursos(
+						Lg_Usuario.tipousuario(In_Iniciar_Secion.ced)).get(i));
+				Object interfazcliente = clase.newInstance();
+				metodo = clase.getMethod("run");
+				// metodo.invoke(interfazcliente);
+				contenedor.addTab((String) recursos.asignacionRecursos(1)
+						.get(i), null, (Component) metodo
+						.invoke(interfazcliente), null);
 			}
+
 		} catch (ClassNotFoundException ex) {
 			System.out.println("La clase no pudo ser encontrada");
 		} catch (InstantiationException x) {
