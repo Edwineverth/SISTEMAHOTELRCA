@@ -9,9 +9,7 @@ import javax.swing.table.DefaultTableModel;
 import conexion.Conexion;
 
 /**
- * The Class Lg_Usuario.
- * olaaaa
- * Edwin Cambio 32334234
+ * The Class Lg_Usuario. olaaaa Edwin Cambio 32334234
  */
 public class Lg_Usuario {
 
@@ -104,7 +102,7 @@ public class Lg_Usuario {
 	 */
 	@SuppressWarnings("static-access")
 	public void AgregarUsuario() {
-		String cad = "INSERT INTO usuario (usu_codigo,cedula, nombre, apellidos, telefono, direccion, clave, tus_codigo, estado) VALUES ('"
+		String cad = "INSERT INTO usuario (usu_codigo,usu_cedula, usu_nombre, usu_apellidos, usu_telefono, usu_direccion, usu_clave, usu_estado, tus_codigos) VALUES ('"
 				+ usu_codigo
 				+ "','"
 				+ usu_cedula
@@ -119,9 +117,9 @@ public class Lg_Usuario {
 				+ "', '"
 				+ usu_clave
 				+ "', '"
-				+ usu_tipo
+				+ estado
 				+ "',"
-				+ estado + " );";
+				+ usu_tipo + " );";
 
 		c.sentencia(cad);
 
@@ -229,5 +227,5 @@ public class Lg_Usuario {
 		}
 		return persmiso;
 	}
-	
+
 }

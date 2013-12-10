@@ -1,10 +1,12 @@
 package interfaz;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -16,12 +18,14 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.event.CaretEvent;
 import javax.swing.table.DefaultTableModel;
+
+import org.apache.poi.hssf.record.formula.functions.If;
+
 import logica.Lg_Cliente;
 import logica.Lg_Validaciones;
 
 /**
- * The Class In_Cliente.Un cambio 
- * de ahora sasfasdasd
+ * The Class In_Cliente.Un cambio de ahora sasfasdasd
  * 
  * 
  */
@@ -119,7 +123,7 @@ public class In_Cliente {
 	 * 
 	 * @return the j layered pane
 	 */
-	
+
 	public JLayeredPane run() {
 		System.out.println("holaaaa");
 		Panel_Cliente.setLayout(null);
@@ -287,64 +291,72 @@ public class In_Cliente {
 				cli_direccion.setEditable(true);
 				cli_telefono.setEditable(true);
 
+				///VALIDAR CEDULA
+				
 				cli_cedula.addKeyListener(new KeyAdapter() {
-
-					/*
-					 * (non-Javadoc)
-					 * 
-					 * @see
-					 * java.awt.event.KeyAdapter#keyReleased(java.awt.event.
-					 * KeyEvent) Establece una accion de escuchador de tecleo
-					 */
 					public void keyReleased(KeyEvent e) {
 						// Si la tecla presionada es igual al evento dado entra.
 						if (e.getKeyCode() == KeyEvent.VK_ENTER
 								&& !cli_cedula.equals("")) {
 							System.out.println("liso");
-							if (comprobacion.validarCedula(cli_cedula)) {
-
-							} else {
-								JOptionPane
-										.showMessageDialog(null,
-												"	CEDULA INCORRECTA ---- INGRESE CEDULA VALIDA ");
-								cli_cedula.setText("Ingrese cedula correcta");
+							if (!comprobacion.validarCedula(cli_cedula)) {
+								cli_cedula.setText("Ingrese Cedula Correcta");
+								cli_cedula.setBackground(Color.RED);
+							}else {
+								cli_cedula.setBackground(Color.WHITE);
 							}
-
-						} else {
-							System.out.println("No Entra");
 						}
-
 					}
 
 				});
-				cli_telefono.addKeyListener(new KeyAdapter() {
+				
+				///VALIDAR NOMBRE 
+				cli_nombre.addKeyListener(new KeyAdapter() {
+					public void keyReleased(KeyEvent e) {
+						if (e.getKeyCode() == KeyEvent.VK_ENTER
+								&& !cli_nombre.equals("")) {
+							if (!comprobacion.validacionNombres(cli_nombre)) {
+								cli_nombre.setText("Nombre no valido");
+								cli_nombre.setBackground(Color.RED);
+							}else {
+								cli_nombre.setBackground(Color.WHITE);
+							}
+						}
+					}
 
-					/*
-					 * (non-Javadoc)
-					 * 
-					 * @see
-					 * java.awt.event.KeyAdapter#keyReleased(java.awt.event.
-					 * KeyEvent)
-					 */
+				});
+				
+				// VALIDAR APELLIDO
+				cli_apellido.addKeyListener(new KeyAdapter() {
+					public void keyReleased(KeyEvent e) {
+						if (e.getKeyCode() == KeyEvent.VK_ENTER
+								&& !cli_apellido.equals("")) {
+							if (!comprobacion.validacionNombres(cli_apellido)) {
+								cli_apellido.setText("Apellido no valido");
+								cli_apellido.setBackground(Color.RED);
+							}else {
+								cli_apellido.setBackground(Color.WHITE);
+							}
+						}
+					}
+
+				});
+
+				//VALIDAR TELEFONO
+				cli_telefono.addKeyListener(new KeyAdapter() {
 					public void keyReleased(KeyEvent e) {
 						if (e.getKeyCode() == KeyEvent.VK_ENTER
 								&& !cli_telefono.equals("")) {
 							System.out.println("liso");
-							if (comprobacion
+							if (!comprobacion
 									.validarNumeroTelefonico(cli_telefono)) {
-
-							} else {
-								JOptionPane
-										.showMessageDialog(null,
-												"NUMERO TELEFONICO NO VALIDO ---- INGRESE NUMERO VALIDO ");
 								cli_telefono
 										.setText("Ingrese Numero Telefonico Valido");
+								cli_telefono.setBackground(Color.RED);
+							}else {
+								cli_telefono.setBackground(Color.WHITE);
 							}
-
-						} else {
-							System.out.println("no coje");
 						}
-
 					}
 
 				});
@@ -477,8 +489,8 @@ public class In_Cliente {
 			 * 
 			 * @see
 			 * java.awt.event.ActionListener#actionPerformed(java.awt.event.
-			 * ActionEvent)
-			 * Envia al primer numero de la tabla y los carga en los cuadros de texto
+			 * ActionEvent) Envia al primer numero de la tabla y los carga en
+			 * los cuadros de texto
 			 */
 			public void actionPerformed(ActionEvent arg0) {
 				n = 0;
@@ -497,8 +509,7 @@ public class In_Cliente {
 			 * 
 			 * @see
 			 * java.awt.event.ActionListener#actionPerformed(java.awt.event.
-			 * ActionEvent)
-			 * Carga los datos de la tabla en los cuadros de texto.
+			 * ActionEvent) Carga los datos de la tabla en los cuadros de texto.
 			 */
 			public void actionPerformed(ActionEvent arg0) {
 				if (n > 0) {
@@ -519,8 +530,7 @@ public class In_Cliente {
 			 * 
 			 * @see
 			 * java.awt.event.ActionListener#actionPerformed(java.awt.event.
-			 * ActionEvent)
-			 * Carga los datos de la tabla en los cuadros de texto.
+			 * ActionEvent) Carga los datos de la tabla en los cuadros de texto.
 			 */
 			public void actionPerformed(ActionEvent arg0) {
 				if (n < tabla.getRowCount() - 1) {

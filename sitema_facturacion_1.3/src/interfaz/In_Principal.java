@@ -1,5 +1,6 @@
 package interfaz;
 
+import javax.swing.Icon;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -8,6 +9,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButtonMenuItem;
 import javax.swing.JTabbedPane;
+
+import org.jvnet.substance.SubstanceLookAndFeel;
 
 import conexion.Conexion;
 
@@ -60,6 +63,14 @@ public class In_Principal {
 	 */
 	public void aparienciaVentana() {
 		JFrame.setDefaultLookAndFeelDecorated(true);
+		JFrame.setDefaultLookAndFeelDecorated(true);
+		SubstanceLookAndFeel
+				.setCurrentTheme("org.jvnet.substance.theme.SubstanceBrownTheme");
+		SubstanceLookAndFeel
+				.setSkin("org.jvnet.substance.skin.MistAquaSkin");
+		SubstanceLookAndFeel
+				.setCurrentWatermark("org.jvnet.substance.watermark.SubstanceLatchWatermark");
+		SubstanceLookAndFeel.setImageWatermarkOpacity(new Float(1.0));
 
 	}
 
@@ -71,7 +82,7 @@ public class In_Principal {
 	 * @throws ClassNotFoundException
 	 */
 	public void run() throws IOException, ClassNotFoundException {
-		ventana.setTitle("FACTURE OFFICE  V 1.2");
+		ventana.setTitle("FACTURE OFFICE  V 1.3");
 		ventana.setIconImage(Toolkit.getDefaultToolkit().getImage(
 				"imagenes/facturacion.png"));
 		ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -104,37 +115,45 @@ public class In_Principal {
 	public void contenedores() {
 		Class<?> clase;
 		Method metodo;
-		try {
+	try {
 			contenedor.setBounds(15, 40, x - 40, y - 120);
 			Lg_Recursos recursos = new Lg_Recursos();
+			Lg_Converciones c = new Lg_Converciones();
 			Vector contiene = recursos.asignacionRecursos(Lg_Usuario
 					.tipousuario(In_Iniciar_Secion.ced));
+			System.out.println(contiene.size());
 			for (int i = 0; i < contiene.size(); i++) {
-				 System.out.println(contiene.get(i));
 				clase = Class.forName((String) contiene.get(i));
 				Object interfazcliente = clase.newInstance();
 				metodo = clase.getMethod("run");
-				// metodo.invoke(interfazcliente);
-				contenedor.addTab((String) contiene.get(i), null,
+				contenedor.addTab((String) c.cambio((String) contiene.get(i)),  null,
 						(Component) metodo.invoke(interfazcliente), null);
 			}
 
 		} catch (ClassNotFoundException ex) {
 			System.out.println("La clase no pudo ser encontrada");
+			
 		} catch (InstantiationException x) {
 			System.out
 					.println("No se pudo crear una instancia de la clase desconocida");
+			
 		} catch (IllegalAccessException x) {
 			System.out
 					.println("No se puede tener acceso a la clase desconocida");
 		} catch (IllegalArgumentException x) {
 			System.out
 					.println("Los argumentos para invocar al metodo no son correctos");
-		} catch (InvocationTargetException x) {
-			System.out.println("El metodo invocado lanzo una excepcion");
-		} catch (NoSuchMethodException x) {
-
+		} catch (NoSuchMethodException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		
 		panel.add(contenedor);
 	}
 

@@ -1,5 +1,6 @@
 package interfaz;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,6 +14,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -50,7 +52,7 @@ public class In_Usuario {
 	JTextField usu_direccion = new JTextField();
 
 	/** The usu_clave. */
-	JTextField usu_clave = new JTextField();
+	JPasswordField usu_clave = new JPasswordField();
 
 	/** The usu_tipo. */
 	@SuppressWarnings("rawtypes")
@@ -121,6 +123,7 @@ public class In_Usuario {
 
 	/** The estado. */
 	boolean estado = true;
+	public Lg_Validaciones comprobacion = new Lg_Validaciones();
 
 	
 	public void runr() {
@@ -272,6 +275,7 @@ public class In_Usuario {
 	 * a los cuadros de texto para implementar ciertos tipos de validacion.
 	 */
 	public void botones() {
+		
 		nuevo.setToolTipText("Nuevo");
 		nuevo.setIcon(new ImageIcon("imagenes/nuevo.png"));
 		nuevo.setBounds(10, 11, 37, 34);
@@ -307,55 +311,79 @@ public class In_Usuario {
 				usu_direccion.setEditable(true);
 				usu_clave.setEditable(true);
 
+				///VALIDAR CEDULA
+				
 				usu_cedula.addKeyListener(new KeyAdapter() {
 					public void keyReleased(KeyEvent e) {
-
+						// Si la tecla presionada es igual al evento dado entra.
 						if (e.getKeyCode() == KeyEvent.VK_ENTER
 								&& !usu_cedula.equals("")) {
 							System.out.println("liso");
-							if (Comprobacion.validarCedula(usu_cedula)) {
-
-							} else {
-								JOptionPane
-										.showMessageDialog(null,
-												"	CEDULA INCORRECTA ---- INGRESE CEDULA VALIDA ");
-								usu_cedula.setText("Ingrese cedula correcta");
+							if (!comprobacion.validarCedula(usu_cedula)) {
+								usu_cedula.setText("Ingrese Cedula Correcta");
+								usu_cedula.setBackground(Color.RED);
+							}else {
+								usu_cedula.setBackground(Color.WHITE);
 							}
-
-						} else {
-							System.out.println("no coje");
 						}
-
 					}
 
 				});
-				usu_telefono.addKeyListener(new KeyAdapter() {
+				
+				///VALIDAR NOMBRE 
+				usu_nombre.addKeyListener(new KeyAdapter() {
+					public void keyReleased(KeyEvent e) {
+						if (e.getKeyCode() == KeyEvent.VK_ENTER
+								&& !usu_nombre.equals("")) {
+							if (!comprobacion.validacionNombres(usu_nombre)) {
+								usu_nombre.setText("Nombre no valido");
+								usu_nombre.setBackground(Color.RED);
+							}else {
+								usu_nombre.setBackground(Color.WHITE);
+							}
+						}
+					}
 
+				});
+				
+				// VALIDAR APELLIDO
+				usu_apellido.addKeyListener(new KeyAdapter() {
+					public void keyReleased(KeyEvent e) {
+						if (e.getKeyCode() == KeyEvent.VK_ENTER
+								&& !usu_apellido.equals("")) {
+							if (!comprobacion.validacionNombres(usu_apellido)) {
+								usu_apellido.setText("Apellido no valido");
+								usu_apellido.setBackground(Color.RED);
+							}else {
+								usu_apellido.setBackground(Color.WHITE);
+							}
+						}
+					}
+
+				});
+
+				//VALIDAR TELEFONO
+				usu_telefono.addKeyListener(new KeyAdapter() {
 					public void keyReleased(KeyEvent e) {
 						if (e.getKeyCode() == KeyEvent.VK_ENTER
 								&& !usu_telefono.equals("")) {
 							System.out.println("liso");
-							if (Comprobacion
+							if (!comprobacion
 									.validarNumeroTelefonico(usu_telefono)) {
-
-							} else {
-								JOptionPane
-										.showMessageDialog(null,
-												"NUMERO TELEFONICO NO VALIDO ---- INGRESE NUMERO VALIDO ");
 								usu_telefono
 										.setText("Ingrese Numero Telefonico Valido");
+								usu_telefono.setBackground(Color.RED);
+							}else {
+								usu_telefono.setBackground(Color.WHITE);
 							}
-
-						} else {
-							System.out.println("no coje");
 						}
-
 					}
 
 				});
 
 			}
 		});
+		
 		Panel_Usuario.add(nuevo);
 
 		guardar.setEnabled(false);
@@ -371,6 +399,8 @@ public class In_Usuario {
 				anterior.setEnabled(true);
 				siguiente.setEnabled(true);
 				fin.setEnabled(true);
+				
+				
 				// crea un nuevo ojecto de la clase logica e usuario y le envia
 				// los parametros que hay en los cuadros de texto
 				usuario = new Lg_Usuario(
@@ -381,9 +411,11 @@ public class In_Usuario {
 								.getSelectedIndex() + 1, estado);
 
 				if (bn1) {
+					
 					// ejecuta el metodo agregar usuario que esta en la clase
 					// logica de usuario y crea un nuevo modelo de la tabla con
 					// los parametros que hay en el cuadro de texto
+					
 					usuario.AgregarUsuario();
 					modelo.addRow(new Object[] {
 							Integer.parseInt(usu_codigo.getText()),

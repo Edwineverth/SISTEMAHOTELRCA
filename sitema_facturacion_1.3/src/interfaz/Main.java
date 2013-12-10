@@ -4,12 +4,13 @@ package interfaz;
 
 import java.awt.EventQueue;
 
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JRootPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JProgressBar;
+
+import org.jvnet.substance.SubstanceLookAndFeel;
 
 
 /**
@@ -61,9 +62,17 @@ public class Main extends JFrame {
 	 */
 	public Main() {
 		JFrame.setDefaultLookAndFeelDecorated(true);
+		JFrame.setDefaultLookAndFeelDecorated(true);
+		SubstanceLookAndFeel
+				.setCurrentTheme("org.jvnet.substance.theme.SubstanceBrownTheme");
+		SubstanceLookAndFeel
+				.setSkin("org.jvnet.substance.skin.MistAquaSkin");
+		SubstanceLookAndFeel
+				.setCurrentWatermark("org.jvnet.substance.watermark.SubstanceLatchWatermark");
+		SubstanceLookAndFeel.setImageWatermarkOpacity(new Float(1.0));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		setBounds(100, 100, 800, 20);
+		setBounds(100, 100, 300, 20);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
@@ -72,7 +81,7 @@ public class Main extends JFrame {
 		getRootPane().setWindowDecorationStyle(JRootPane.NONE);
 
 		barra = new JProgressBar();
-		barra.setBounds(0,0,800,20);
+		barra.setBounds(0,0,300,20);
 		barra.setVisible(true);
 		new Thread(new Hilo()).start();
 

@@ -90,7 +90,7 @@ public class Lg_Cliente {
 	 */
 	@SuppressWarnings("static-access")
 	public void AgregarCliente() {
-		String cad = "INSERT INTO cliente (cli_codigo,cedula, nombre, apellido, telefono, direccion, estado) VALUES ('"
+		String cad = "INSERT INTO cliente (cli_codigo,cli_cedula, cli_nombre, cli_apellido, cli_telefono, cli_direccion, cli_estado) VALUES ('"
 				+ cli_codigo
 				+ "','"
 				+ cli_cedula

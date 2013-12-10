@@ -10,6 +10,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 
+import org.jvnet.substance.SubstanceLookAndFeel;
+
 import conexion.Conexion;
 
 import java.awt.Color;
@@ -67,8 +69,16 @@ public class In_Iniciar_Secion {
 	/**
 	 * Deco.
 	 */
-	public void deco() {
+	public void decorar() {
 		JFrame.setDefaultLookAndFeelDecorated(true);
+		JFrame.setDefaultLookAndFeelDecorated(true);
+		SubstanceLookAndFeel
+				.setCurrentTheme("org.jvnet.substance.theme.SubstanceBrownTheme");
+		SubstanceLookAndFeel
+				.setSkin("org.jvnet.substance.skin.MistAquaSkin");
+		SubstanceLookAndFeel
+				.setCurrentWatermark("org.jvnet.substance.watermark.SubstanceLatchWatermark");
+		SubstanceLookAndFeel.setImageWatermarkOpacity(new Float(1.0));
 		
 	}
 
@@ -84,7 +94,7 @@ public class In_Iniciar_Secion {
 		
 		ventana.setLocationRelativeTo(null);
 
-		deco();
+		decorar();
 
 		panel.setLayout(null);
 

@@ -187,4 +187,11 @@ public class Lg_Validaciones {
 		}
 	}
 
+	public boolean validacionNombres(JTextField nombre) {
+		if (!nombre.getText().matches("[a -zA-ZáéíúÁÉÍÓÚÑñüÜ]{2,30}")) {
+			return false;
+		}
+		return true;
+	}
+
 }
