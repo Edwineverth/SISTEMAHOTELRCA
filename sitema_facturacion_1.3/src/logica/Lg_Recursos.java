@@ -30,15 +30,12 @@ public class Lg_Recursos {
 	public Vector asignacionRecursos(int permiso) {
 		Vector vector = new Vector();
 		Conexion c = Conexion.getConn();
-		String recursos = null;
 		try {
 			ResultSet r = c
 					.consulta("SELECT  recurso.rec_nombre FROM  recurso WHERE "+permiso+" = recurso.tus_codigos;");
 			while (r.next()) {
-				recursos = r.getString(1);
-				// System.out.println(recursos);
-				// System.out.println("");
-				vector.add(recursos);
+				
+				vector.add(r.getString(1));
 				
 			}
 		} catch (Exception e) {
