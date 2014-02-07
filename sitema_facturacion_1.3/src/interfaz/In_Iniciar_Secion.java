@@ -209,13 +209,6 @@ public class In_Iniciar_Secion {
 
 	}
 
-	/**
-	 * Entrar. Metodo para poder entrar y levantar la interfaz principal . Se
-	 * define variable ced y pas y por medio de ello se compara un valir boolean
-	 * de true para poder entrar al a interfaz principal.
-	 * @throws IOException 
-	 * @throws ClassNotFoundException 
-	 */
 	public static void entrar() throws IOException, ClassNotFoundException {
 		Lg_Usuario usu = new Lg_Usuario();
 		ced = "";

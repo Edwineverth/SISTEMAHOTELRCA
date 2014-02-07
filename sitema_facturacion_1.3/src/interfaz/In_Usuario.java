@@ -557,7 +557,7 @@ public class In_Usuario {
 	@SuppressWarnings("serial")
 	public void grilla() {
 		String cols[] = { "CODIGO", "CEDULA", "NOMBRES", "APELLIDOS",
-				"TELEFONO", "DIRECCION", "CLAVE", "ROL", "ESTADO" };
+				"TELEFONO", "DIRECCION", "CLAVE", "ESTADO", "ROL" };
 		tabla = new JTable(usuario.llenargrilla(modelo, cols)) {
 			public boolean isCellEditable(int rowIndex, int vColIndex) {
 				return false;
