@@ -2,20 +2,26 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
-	<classpathentry kind="lib" path="substance-4.3.jar"/>
-	<classpathentry kind="lib" path="poi-3.6.jar"/>
-	<classpathentry kind="lib" path="libphonenumber-5.7.jar"/>
-	<classpathentry kind="lib" path="jasperreports-javaflow-4.7.0.jar"/>
-	<classpathentry kind="lib" path="jasperreports-applet-4.7.0.jar"/>
-	<classpathentry kind="lib" path="jasperreports-4.7.0.jar"/>
-	<classpathentry kind="lib" path="jasperreports-fonts-4.7.0.jar"/>
-	<classpathentry kind="lib" path="itext-2.1.7.jar"/>
-	<classpathentry kind="lib" path="postgresql-9.2-1002.jdbc4.jar"/>
-	<classpathentry kind="lib" path="png-encoder-1.5.jar"/>
-	<classpathentry kind="lib" path="commons-logging-1.0.4.jar"/>
-	<classpathentry kind="lib" path="commons-javaflow-20060411.jar"/>
-	<classpathentry kind="lib" path="commons-digester-1.7.jar"/>
-	<classpathentry kind="lib" path="commons-collections-2.1.1.jar"/>
+	<classpathentry kind="lib" path="AutoCompleter.jar"/>
 	<classpathentry kind="lib" path="commons-beanutils-1.8.0.jar"/>
+	<classpathentry kind="lib" path="commons-collections-2.1.1.jar"/>
+	<classpathentry kind="lib" path="commons-digester-1.7.jar"/>
+	<classpathentry kind="lib" path="commons-javaflow-20060411.jar"/>
+	<classpathentry kind="lib" path="commons-logging-1.0.4.jar"/>
+	<classpathentry kind="lib" path="groovy-all-1.7.5.jar"/>
+	<classpathentry kind="lib" path="itext-2.1.7.jar"/>
+	<classpathentry kind="lib" path="jasperreports-4.7.0.jar"/>
+	<classpathentry kind="lib" path="jasperreports-applet-4.7.0.jar"/>
+	<classpathentry kind="lib" path="jasperreports-fonts-4.7.0.jar"/>
+	<classpathentry kind="lib" path="jasperreports-javaflow-4.7.0.jar"/>
+	<classpathentry kind="lib" path="jcalendar-1.3.3.jar"/>
+	<classpathentry kind="lib" path="libphonenumber-5.7.jar"/>
+	<classpathentry kind="lib" path="png-encoder-1.5.jar"/>
+	<classpathentry kind="lib" path="poi-3.6.jar"/>
+	<classpathentry kind="lib" path="postgresql-9.2-1002.jdbc4.jar"/>
+	<classpathentry kind="lib" path="seaglass-demo.jar"/>
+	<classpathentry kind="lib" path="seaglasslookandfeel-0.2-sources.jar"/>
+	<classpathentry kind="lib" path="seaglasslookandfeel-0.2.jar"/>
+	<classpathentry kind="lib" path="substance-4.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e70953e7-3960-42d8-ba2d-363859d80e2c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     cliente."cli_codigo" AS cliente_cli_codigo,
+     cliente."cli_cedula" AS cliente_cli_cedula,
+     cliente."cli_nombre" AS cliente_cli_nombre,
+     cliente."cli_apellido" AS cliente_cli_apellido,
+     cliente."cli_telefono" AS cliente_cli_telefono,
+     cliente."cli_direccion" AS cliente_cli_direccion,
+     cliente."cli_ocupacion" AS cliente_cli_ocupacion,
+     cliente."cli_procedencia" AS cliente_cli_procedencia,
+     cliente."cli_tipo" AS cliente_cli_tipo,
+     cliente."cli_estado" AS cliente_cli_estado
+FROM
+     "public"."cliente" cliente]]>
+	</queryString>
+	<field name="cliente_cli_codigo" class="java.lang.Long"/>
+	<field name="cliente_cli_cedula" class="java.lang.String"/>
+	<field name="cliente_cli_nombre" class="java.lang.String"/>
+	<field name="cliente_cli_apellido" class="java.lang.String"/>
+	<field name="cliente_cli_telefono" class="java.lang.String"/>
+	<field name="cliente_cli_direccion" class="java.lang.String"/>
+	<field name="cliente_cli_estado" class="java.lang.Boolean"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement uuid="26b7732d-5592-46e9-b178-d9b604078091" mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699"/>
+				<staticText>
+					<reportElement uuid="2948c498-ba17-463f-90e2-ba1353198363" x="20" y="20" width="260" height="59" forecolor="#FFFFFF"/>
+					<textElement>
+						<font fontName="Georgia" size="38" isBold="true" isItalic="true" isUnderline="true"/>
+					</textElement>
+					<text><![CDATA[RCA HOTEL]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="02d82e7f-df4b-47d5-878b-6e68eaa0b98e" x="382" y="43" width="193" height="36" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Right">
+						<font fontName="Georgia" size="24" isBold="false" isItalic="true" isUnderline="true" isStrikeThrough="false"/>
+					</textElement>
+					<text><![CDATA[Cliente]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="12"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement uuid="9fa81505-96f9-4be8-8555-57078789bb61" x="-20" y="20" width="595" height="1" forecolor="#666666"/>
+			</line>
+			<staticText>
+				<reportElement uuid="0680ab29-0ba4-404a-9789-d85576a12b66" mode="Opaque" x="0" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center">
+					<font fontName="Cambria" size="14" isBold="true" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Códgo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e6d6e999-aaa6-4e8a-88a6-286661c3c505" mode="Opaque" x="79" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center">
+					<font fontName="Cambria" size="14" isBold="true" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Cédula]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a8d1d6e8-6836-4443-ae22-b1e0d3a9592f" mode="Opaque" x="158" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center">
+					<font fontName="Cambria" size="14" isBold="true" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="15a8e2ea-0a64-49a4-a686-64665b7a1b1c" mode="Opaque" x="237" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center">
+					<font fontName="Cambria" size="14" isBold="true" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="79371508-a0b8-49b2-8c48-0d73fd032781" mode="Opaque" x="316" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center">
+					<font fontName="Cambria" size="14" isBold="true" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Teléfono]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="612ed1f5-cd5d-4026-8786-2841bab064c8" mode="Opaque" x="395" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center">
+					<font fontName="Cambria" size="14" isBold="true" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Dirección]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="80a0a57c-58c6-4cac-a64c-15f9037f64d2" mode="Opaque" x="474" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center">
+					<font fontName="Cambria" size="14" isBold="true" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement uuid="0ba4bdb8-b7e2-4f56-a9e5-769efe8599c3" positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="727eaeef-8a4f-48a5-ac3d-93f3e08ed443" x="0" y="0" width="79" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Cambria" size="12" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cliente_cli_codigo}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="3bb0c338-26bd-4f4e-9f0f-462440fbb374" x="79" y="0" width="79" height="20"/>
+				<textElement>
+					<font fontName="Cambria" size="12" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cliente_cli_cedula}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="5ded0f1e-28ef-4d75-8dd0-c08f9bc4440b" x="158" y="0" width="79" height="20"/>
+				<textElement>
+					<font fontName="Cambria" size="12" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cliente_cli_nombre}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="f8562589-c3d8-44d0-9d2a-4cb81f405180" x="237" y="0" width="79" height="20"/>
+				<textElement>
+					<font fontName="Cambria" size="12" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cliente_cli_apellido}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="0281a982-209c-45ed-952f-eaf2060cc14e" x="316" y="0" width="79" height="20"/>
+				<textElement>
+					<font fontName="Cambria" size="12" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cliente_cli_telefono}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="5635fb18-5e4e-4120-92dc-610cb5e9b75d" x="395" y="0" width="79" height="20"/>
+				<textElement>
+					<font fontName="Cambria" size="12" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cliente_cli_direccion}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="5ddad241-d4f0-4d63-be92-df5fc8726afc" x="474" y="0" width="79" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Cambria" size="12" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cliente_cli_estado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement uuid="fc0a7dcd-9fb1-4e04-a862-e474da69e24b" mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="5f8fa0e3-e236-4560-ae76-62ccbaaff4e8" mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="a95a72d1-1779-438c-9cd6-1d0e3da06969" x="0" y="4" width="100" height="13"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

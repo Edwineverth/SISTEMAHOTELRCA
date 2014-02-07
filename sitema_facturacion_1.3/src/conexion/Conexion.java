@@ -94,7 +94,7 @@ public class Conexion {
 	 * @param sql
 	 *            the sql
 	 */
-	public static void sentencia(String sql) {
+	public  void sentencia(String sql) {
 		try {
 			pst = con.prepareStatement(sql);
 
